@@ -48,9 +48,15 @@ artApp.displayPieces = function(artPieces) {
 artApp.setUpEventListener = function() {
   document.querySelector('#animal').addEventListener('change', function() {
     artApp.getPieces(this.value);
+    artApp.updateTitle();
   })
 }
 
+artApp.updateTitle = function() {
+  const selectElement = document.querySelector('#animal');
+  const selectedOptionText = selectElement.selectedOptions[0].textContent;
+  document.querySelector('#dynamicTitle').innerText = selectedOptionText;
+}
 
 artApp.init = function () {
   
